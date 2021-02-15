@@ -6,7 +6,7 @@ export interface TaskModel {
 }
 
 export enum TaskStatus {
-  completed = 1,
-  active = 0,
-  expired = -1
+  completed = "completed",
+  active = "active",
+  expired = "expired"
 }
