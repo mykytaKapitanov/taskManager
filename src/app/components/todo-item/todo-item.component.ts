@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { TaskModel } from '../../models/task.model';
+import { TaskModel, TaskStatus } from '../../models/task.model';
 
 @Component({
   selector: 'app-todo-item',
@@ -15,8 +15,19 @@ export class TodoItemComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  complete() {
+  setCompleted(): void {
     this.completed.emit(true);
   }
 
+  checkCompletedStatus(): boolean {
+    return this.task.status === TaskStatus.completed;
+  }
+
+  checkActiveStatus(): boolean {
+    return this.task.status === TaskStatus.active;
+  }
+
+  checkExpiredStatus(): boolean {
+    return this.task.status === TaskStatus.expired;
+  }
 }

@@ -8,21 +8,21 @@ import { TaskModel } from './models/task.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  tasks: Array<TaskModel> = [];
+  tasks: TaskModel[] = [];
 
-  constructor(private appService: AppService) {}
+  constructor(private appService: AppService) { }
 
-  ngOnInit(){
-    this.appService.checkDateActual();
-    this.tasks = this.appService.getData();
+  ngOnInit(): void {
+    this.appService.checkTaskExpired();
+    this.tasks = this.appService.getTasks();
   }
 
-  addNewTodo(todo: TaskModel){
-    this.appService.addData(todo);
-    this.appService.checkDateActual();
+  addNewTask(task: TaskModel): void {
+    this.appService.setTask(task);
+    this.appService.checkTaskExpired();
   }
 
-  updateTodoFinished(item: TaskModel) {
-    this.appService.changeStatusDone(item.id);
+  updateTaskCompleted(item: TaskModel): void {
+    this.appService.changeStatusCompleted(item.id);
   }
 }
