@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { TaskModel } from '../../models/task.model';
 
 @Component({
   selector: 'app-create-todo',
@@ -9,7 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class CreateTodoComponent implements OnInit {
 
   myReactiveForm: FormGroup;
-  @Output() newTodo = new EventEmitter<Object>();
+  @Output() newTodo = new EventEmitter<TaskModel>();
 
   constructor(private fb: FormBuilder) { }
 
@@ -19,7 +20,7 @@ export class CreateTodoComponent implements OnInit {
 
   initForm() {
     this.myReactiveForm = this.fb.group({
-      task: [null,
+      name: [null,
         Validators.required
       ],
       date: [null]
@@ -42,7 +43,7 @@ export class CreateTodoComponent implements OnInit {
         .forEach(controlName => controls[controlName].markAsTouched());
       return;
     }
-    this.newTodo.emit({ ...this.myReactiveForm.value, done: 0 });
+    this.newTodo.emit(this.myReactiveForm.value);
     this.myReactiveForm.reset();
   }
 
