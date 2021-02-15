@@ -1,0 +1,11 @@
+<form [formGroup]="myReactiveForm" (submit)="onSubmit()" class="form">
+    <label for="task" class="label">Enter task</label>
+    <input type="text" id="task" formControlName="task" placeholder="What you need to do?" class="input" />
+    <div class="error" *ngIf="isControlInvalid('task')">
+        Please enter the task name
+    </div>
+    <label for="date" class="label">Limit yourself by date</label>
+    <input type="date" id="date" formControlName="date" placeholder="dd-mm-yyyy" class="input" />
+    <button type="submit" class="button">Create task</button>
+
+</form>

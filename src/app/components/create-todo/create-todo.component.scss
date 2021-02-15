@@ -1,0 +1,42 @@
+input.ng-touched.ng-invalid{
+    border-color: red;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    &:nth-child(n){
+        width: 200px;
+    }
+}
+
+.label{
+    margin-top: 10px;
+}
+
+.input{
+    outline: none;
+}
+
+.button{
+    background: white;
+    margin-top: 15px;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 2px;
+    cursor: pointer;
+
+    &:hover{
+        background: darkgray;
+    }
+}
+
+.error{
+    margin-top: 4px;
+    color: red;
+    font-size: 12px;
+    width: 100%;
+}

@@ -1,0 +1,8 @@
+<div class="todo_item">
+    <span class="task">Task: {{task}}</span>
+    <span *ngIf="date">{{"Due date: " + date}}</span>
+    <span *ngIf="!date"></span>
+    <span *ngIf="status === 1" class="success">Completed</span>
+    <span *ngIf="status === -1" class="error">Expired</span>
+    <button *ngIf="status === 0" (click)="complete()">Complete task</button>
+</div>

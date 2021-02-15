@@ -1,0 +1,6 @@
+<p class="partial_width header">Create new task:</p>
+<app-create-todo (newTodo)="addNewTodo($event)" class="partial_width"></app-create-todo>
+<p class="partial_width header">List of tasks:</p>
+<div class="partial_width list" *ngFor="let item of tasks">
+  <app-todo-item class="partial_width" [task]="item.task" [date]="item.date" [status]="item.status" (completed)="updateTodoFinished(item)"></app-todo-item>
+</div>
