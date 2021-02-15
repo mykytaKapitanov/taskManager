@@ -14,7 +14,7 @@
     }
 
     & span:not(:last-child) {
-        width: 270px;
+        width: 330px;
         overflow: hidden;
     }
 
@@ -24,6 +24,11 @@
         border-radius: 2px;
         background-color: white;
         cursor: pointer;
+
+        &:hover{
+            background-color: green;
+            color: white;
+        }
     }
 }
 

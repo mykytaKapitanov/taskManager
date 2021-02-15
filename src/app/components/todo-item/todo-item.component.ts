@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { TaskModel } from '../../models/task.model';
 
 @Component({
   selector: 'app-todo-item',
@@ -6,9 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./todo-item.component.scss']
 })
 export class TodoItemComponent implements OnInit {
-  @Input() task: string;
-  @Input() date: string;
-  @Input() status: number;
+  @Input() task: TaskModel;
 
   @Output() completed = new EventEmitter<boolean>();
 

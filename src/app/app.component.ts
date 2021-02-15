@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppService } from './services/app.service';
+import { TaskModel } from './models/task.model';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { AppService } from './services/app.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  tasks: Array<Object> = [];
+  tasks: Array<TaskModel> = [];
 
   constructor(private appService: AppService) {}
 
@@ -16,12 +17,12 @@ export class AppComponent {
     this.tasks = this.appService.getData();
   }
 
-  addNewTodo(todo: Object){
+  addNewTodo(todo: TaskModel){
     this.appService.addData(todo);
     this.appService.checkDateActual();
   }
 
-  updateTodoFinished(item: Object) {
-    this.appService.changeStatusDone(item['id']);
+  updateTodoFinished(item: TaskModel) {
+    this.appService.changeStatusDone(item.id);
   }
 }
