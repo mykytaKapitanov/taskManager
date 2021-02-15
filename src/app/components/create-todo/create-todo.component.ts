@@ -9,7 +9,7 @@ import { TaskModel } from '../../models/task.model';
 })
 export class CreateTodoComponent implements OnInit {
 
-  myReactiveForm: FormGroup;
+  form: FormGroup;
   @Output() newTodo = new EventEmitter<TaskModel>();
 
   constructor(private fb: FormBuilder) { }
@@ -18,8 +18,8 @@ export class CreateTodoComponent implements OnInit {
     this.initForm();
   }
 
-  initForm() {
-    this.myReactiveForm = this.fb.group({
+  initForm(): void {
+    this.form = this.fb.group({
       name: [null,
         Validators.required
       ],
@@ -28,23 +28,23 @@ export class CreateTodoComponent implements OnInit {
   }
 
   isControlInvalid(controlName: string): boolean {
-    const control = this.myReactiveForm.controls[controlName];
+    const control = this.form.controls[controlName];
 
     const result = control.invalid && control.touched;
 
     return result;
   }
 
-  onSubmit() {
-    const controls = this.myReactiveForm.controls;
+  onSubmit(): void {
+    const controls = this.form.controls;
 
-    if (this.myReactiveForm.invalid) {
+    if (this.form.invalid) {
       Object.keys(controls)
         .forEach(controlName => controls[controlName].markAsTouched());
       return;
     }
-    this.newTodo.emit(this.myReactiveForm.value);
-    this.myReactiveForm.reset();
+    this.newTodo.emit(this.form.value);
+    this.form.reset();
   }
 
 }

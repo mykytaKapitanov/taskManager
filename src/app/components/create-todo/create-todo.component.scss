@@ -1,40 +1,47 @@
-input.ng-touched.ng-invalid{
+input.ng-touched.ng-invalid {
     border-color: red;
 }
 
-.form{
+.form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
 
-    &:nth-child(n){
+    &:nth-child(n) {
         width: 200px;
     }
 }
 
-.label{
+.label {
     margin-top: 10px;
 }
 
-.input{
+.input {
     outline: none;
+    border: 1px solid rgb(49, 49, 49);
+    height: 20px;
 }
 
-.button{
+.button {
     background: white;
     margin-top: 15px;
+    height: 25px;
     outline: none;
     border: 1px solid rgb(49, 49, 49);
     border-radius: 2px;
     cursor: pointer;
+    transition-duration: 0.15s;
+    transition-property: color, background-color;
+    transition-timing-function: linear;
 
-    &:hover{
-        background: darkgray;
+    &:hover {
+        background: rgb(49, 49, 49);
+        color: white;
     }
 }
 
-.error{
+.error {
     margin-top: 4px;
     color: red;
     font-size: 12px;

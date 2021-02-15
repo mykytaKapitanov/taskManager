@@ -2,11 +2,11 @@
   <div class="header_wrapper">
     <p class="header">Create new task:</p>
   </div>
-  <app-create-todo (newTodo)="addNewTodo($event)"></app-create-todo>
+  <app-create-todo (newTodo)="addNewTask($event)"></app-create-todo>
   <div class="header_wrapper">
     <p class="header">List of tasks:</p>
   </div>
   <div class="list" *ngFor="let item of tasks">
-    <app-todo-item class="simple_task" [task]="item" (completed)="updateTodoFinished(item)"></app-todo-item>
+    <app-todo-item [task]="item" (completed)="updateTaskCompleted(item)"></app-todo-item>
   </div>
 </div>

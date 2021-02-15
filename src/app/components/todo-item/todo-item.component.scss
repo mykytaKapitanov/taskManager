@@ -24,8 +24,11 @@
         border-radius: 2px;
         background-color: white;
         cursor: pointer;
+        transition-duration: 0.15s;
+        transition-property: color, background-color;
+        transition-timing-function: linear;
 
-        &:hover{
+        &:hover {
             background-color: green;
             color: white;
         }
@@ -40,7 +43,7 @@
     color: red;
 }
 
-.task{
+.task_text {
     color: blue;
     font-weight: 600;
 }
