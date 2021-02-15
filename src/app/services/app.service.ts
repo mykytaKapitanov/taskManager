@@ -23,7 +23,7 @@ export class AppService {
     this.tasks.unshift({
       ...task,
       id: this.tasks[0].id + 1,
-      status: 0
+      status: TaskStatus.active
     });
   }
 

@@ -29,22 +29,16 @@ export class CreateTodoComponent implements OnInit {
 
   isControlInvalid(controlName: string): boolean {
     const control = this.form.controls[controlName];
-
     const result = control.invalid && control.touched;
-
     return result;
   }
 
   onSubmit(): void {
-    const controls = this.form.controls;
-
     if (this.form.invalid) {
-      Object.keys(controls)
-        .forEach(controlName => controls[controlName].markAsTouched());
+      this.form.markAllAsTouched();
       return;
     }
     this.newTodo.emit(this.form.value);
     this.form.reset();
   }
-
 }
